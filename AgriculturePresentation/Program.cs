@@ -1,9 +1,22 @@
+using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete.EntityFramework;
+using DataAccessLayer.Contexts;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<IServiceService,ServiceManager>();
+builder.Services.AddScoped<IServiceDal,EfServiceDal>();
+
+builder.Services.AddDbContext<AgricultureContext>();
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

@@ -3,6 +3,7 @@ using BusinessLayer.Concrete;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.EntityFramework;
 using DataAccessLayer.Contexts;
+using EntityLayer.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,14 @@ builder.Services.AddScoped<IServiceService,ServiceManager>();
 builder.Services.AddScoped<IServiceDal,EfServiceDal>();
 builder.Services.AddScoped<ITeamService, TeamManager>();
 builder.Services.AddScoped<ITeamDal, EfTeamDal>();
+builder.Services.AddScoped<IAnnouncementService,AnnouncementManager>();
+builder.Services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
+builder.Services.AddScoped<IImageService, ImageManager>();
+builder.Services.AddScoped<IImageDal, EfImageDal>();
+builder.Services.AddScoped<IAdressService, AddressManager>();
+builder.Services.AddScoped<IAddressDal, EfAddressDal>();
+builder.Services.AddScoped<IContactService, ContactManager>();
+builder.Services.AddScoped<IContactDal, EfContactDal>();
 
 builder.Services.AddDbContext<AgricultureContext>();
 

@@ -11,37 +11,36 @@
             <form class="forms-sample" method="post">
                 <div class="form-group">
                     @Html.HiddenFor(x=> x.TeamId)
-                    <label for="exampleInputName1">Adı Soyadı</label>
+                    <label >Adı Soyadı</label>
                     <span asp-validation-for="PersonName" class="text-danger"></span>
-                    <input type="text" class="form-control" id="exampleInputName1" asp-for="PersonName">
+                    <input type="text" class="form-control" asp-for="PersonName">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail3">Görev</label>
+                    <label>Görev</label>
                     <span asp-validation-for="Title" class="text-danger"></span>
                     <input type="text" class="form-control" asp-for="Title">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail3">Görsel Yolu</label>
+                    <label >Görsel Yolu</label>
                     <span asp-validation-for="ImageUrl" class="text-danger"></span>
                     <input type="text" class="form-control" asp-for="ImageUrl">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail3">Facebook</label>
+                    <label>Facebook</label>
                     <input type="text" class="form-control" asp-for="FacebookUrl">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail3">Instagram</label>
+                    <label>Instagram</label>
                     <input type="text" class="form-control" asp-for="InstagramUrl">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail3">Twitter</label>
+                    <label>Twitter</label>
                     <input type="text" class="form-control"  asp-for="TwiterUrl">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail3">Web sitesi</label>
+                    <label>Web sitesi</label>
                     <input type="text" class="form-control" asp-for="WebsiteUrl">
                 </div>
-
 
                 <button type="submit" class="btn btn-outline-info">Kaydet</button>
             </form>

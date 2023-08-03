@@ -1,0 +1,49 @@
+﻿@model EntityLayer.Concrete.Address
+@{
+    ViewData["Title"] = "EditAddress";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Adres Bilgisi Güncelleme Sayfası</h4>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    @Html.HiddenFor(x=> x.AddressId)
+
+                    <label>Adres Satırı</label>
+                    <span asp-validation-for="Description1" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="Description1"  placeholder="Açıklama 1">
+                    <br />
+
+                    <label>İl/İlçe</label>
+                    <span asp-validation-for="Description2" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="Description2" placeholder="Açıklama 2">
+                    <br />
+
+                    <label>Posta Kodu</label>
+                    <span asp-validation-for="Description3" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="Description3" placeholder="Açıklama 3">
+                    <br />
+
+                    <label>Tel No</label>
+                    <span asp-validation-for="Description4" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="Description4" placeholder="Açıklama 4">
+                    <br />
+
+                    <label>Harita Konumu</label>
+                    <span asp-validation-for="MapInfo" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="MapInfo" placeholder="Harita Bilgisi">
+                    <br />
+
+                </div>              
+
+                <button type="submit" class="btn btn-outline-info">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

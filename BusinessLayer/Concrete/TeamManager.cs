@@ -29,7 +29,7 @@ namespace BusinessLayer.Concrete
         }
 
         public List<Team> GetListAll()
-        {
+        {                        
             return _teamDal.GetListAll();
         }
 

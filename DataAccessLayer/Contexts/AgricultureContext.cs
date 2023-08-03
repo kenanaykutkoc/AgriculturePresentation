@@ -15,6 +15,8 @@ namespace DataAccessLayer.Contexts
             optionsBuilder.UseSqlServer("server=DESKTOP-KVIRVD3;database=AgricultureDb;integrated security=true");
         }
 
+        
+
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Announcement> Announcements { get; set; }
         public DbSet<Contact> Contacts { get; set; }

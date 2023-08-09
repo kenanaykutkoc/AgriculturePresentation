@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class AddressManager : IAdressService
+    public class AddressManager : IAddressService
     {
          private readonly IAddressDal _addressDal;
 

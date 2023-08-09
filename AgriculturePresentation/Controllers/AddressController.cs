@@ -9,9 +9,9 @@ namespace AgriculturePresentation.Controllers
 {
     public class AddressController : Controller
     {
-        private readonly IAdressService _adressService;
+        private readonly IAddressService _adressService;
 
-        public AddressController(IAdressService adressService)
+        public AddressController(IAddressService adressService)
         {
             _adressService = adressService;
         }

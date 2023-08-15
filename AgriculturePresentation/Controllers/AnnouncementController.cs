@@ -28,10 +28,18 @@ namespace AgriculturePresentation.Controllers
         [HttpPost]
         public IActionResult AddAnnouncement(Announcement announcement)
         {
-            announcement.Date=DateTime.Parse(DateTime.Now.ToShortDateString());
-            announcement.Status = false;
-            _announcementService.Insert(announcement);
-            return RedirectToAction("Index");
+            if (DateTime.TryParse(DateTime.Now.ToShortDateString(), out DateTime parsedDate))
+            {
+                announcement.Date = parsedDate;
+                announcement.Status = false;
+                _announcementService.Insert(announcement);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Geçerli bir tarih değeri elde edilemedi.");
+                return View(announcement);
+            }
         }
 
         public IActionResult DeleteAnnouncement(int id)

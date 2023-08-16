@@ -36,9 +36,11 @@ Author URL: http://w3layouts.com
                     <form method="post" class="signin-form">
                         <div class="form-input">
                             <input type="text" asp-for="username" placeholder="Kullanıcı Adınız" required="" autofocus>
+                            <span asp-validation-for="username" class="text-danger"></span>
                         </div>
                         <div class="form-input">
                             <input type="password" asp-for="password" placeholder="Şifreniz" required="">
+                            <span asp-validation-for="password" class="text-danger"></span>
                         </div>
                         <label class="check-remaind">
                             <input type="checkbox">
@@ -46,6 +48,8 @@ Author URL: http://w3layouts.com
                             <p class="remember">Beni hatırla</p>
                         </label>
                         <button type="submit" class="btn btn-primary theme-button mt-4">Giriş Yap</button>
+                        <button type="button" class="btn btn-info theme-button mt-2 btn-block" onclick="window.location.href='/Login/SignUp/'">Kayıt Ol</button>
+
                     </form>
                 </div>
             </div>

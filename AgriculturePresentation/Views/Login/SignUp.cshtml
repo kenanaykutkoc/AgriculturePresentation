@@ -38,17 +38,25 @@
                             <h4>Kayıt Ol</h4>
                             <h6 class="font-weight-light">Sadece 1 dakika içinde kaydını tamamla</h6>
                             <form class="pt-3" method="post">
+
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Kullanıcı Adınız" asp-for="UserName">
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
                                 </div>
+
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email" asp-for="Mail">
+                                    <span asp-validation-for="Mail" class="text-danger"></span>
                                 </div>
+
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Şifreniz" asp-for="Password">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
+
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Şifre Tekrar" asp-for="PasswordConfirm">
+                                    <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
                                 </div>
                                 <div class="mb-4">
                                     <div class="form-check">
@@ -63,7 +71,7 @@
                                </div>
                             </form>
                             <div class="text-center mt-4 font-weight-light">
-                                Zaten bir hesabınız var mı? <a href="login.html" class="text-primary">Giriş Yap</a>
+                                Zaten bir hesabınız var mı? <a href="/Login/Index/" class="text-primary">Giriş Yap</a>
                             </div>
                         </div>
                     </div>

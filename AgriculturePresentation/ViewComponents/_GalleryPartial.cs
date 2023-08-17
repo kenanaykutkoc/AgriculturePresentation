@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 
 namespace AgriculturePresentation.ViewComponents
-{	
-	public class _GalleryPartial:ViewComponent
+{
+	public class _GalleryPartial : ViewComponent
 	{
 		private readonly IImageService _imageService;
 
@@ -15,7 +15,7 @@ namespace AgriculturePresentation.ViewComponents
 		public IViewComponentResult Invoke()
 		{
 			var values = _imageService.GetListAll();
-			return View(values); 
+			return View(values);
 		}
 	}
 }

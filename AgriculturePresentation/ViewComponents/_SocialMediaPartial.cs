@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AgriculturePresentation.ViewComponents
 {
-	public class _SocialMediaPartial:ViewComponent
+	public class _SocialMediaPartial : ViewComponent
 	{
 		private readonly ISocialMediaService _socialMediaService;
 

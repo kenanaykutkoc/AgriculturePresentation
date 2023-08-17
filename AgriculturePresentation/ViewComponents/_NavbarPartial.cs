@@ -2,7 +2,7 @@
 
 namespace AgriculturePresentation.ViewComponents
 {
-	public class _NavbarPartial: ViewComponent
+	public class _NavbarPartial : ViewComponent
 	{
 		public IViewComponentResult Invoke()
 		{

@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AgriculturePresentation.Controllers
 {
-    [AllowAnonymous]
-    public class DefaultController : Controller
-    {
-        private readonly IContactService _contactService;
+	[AllowAnonymous]
+	public class DefaultController : Controller
+	{
+		private readonly IContactService _contactService;
 
 		public DefaultController(IContactService contactService)
 		{
@@ -16,30 +16,30 @@ namespace AgriculturePresentation.Controllers
 		}
 
 		public IActionResult Index()
-        {
-            return View();
-        }
+		{
+			return View();
+		}
 
-        [HttpGet]
+		[HttpGet]
 
-        public PartialViewResult SendMessage()
-        {
-            return PartialView();
-        }
+		public PartialViewResult SendMessage()
+		{
+			return PartialView();
+		}
 
 		[HttpPost]
 		public IActionResult SendMessage(Contact contact)
 		{
-            contact.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
-            _contactService.Insert(contact);
+			contact.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+			_contactService.Insert(contact);
 			ViewBag.MessageSent = true;
-			return RedirectToAction("Index","Default");
+			return RedirectToAction("Index", "Default");
 		}
 
-       public PartialViewResult ScriptPartial()
-        {
-            return PartialView();
-        }
+		public PartialViewResult ScriptPartial()
+		{
+			return PartialView();
+		}
 
 	}
 }

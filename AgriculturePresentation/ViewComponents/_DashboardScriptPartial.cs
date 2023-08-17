@@ -2,11 +2,11 @@
 
 namespace AgriculturePresentation.ViewComponents
 {
-    public class _DashboardScriptPartial:ViewComponent
-    {
-        public IViewComponentResult Invoke()
-        {
-            return View();
-        }
-    }
+	public class _DashboardScriptPartial : ViewComponent
+	{
+		public IViewComponentResult Invoke()
+		{
+			return View();
+		}
+	}
 }

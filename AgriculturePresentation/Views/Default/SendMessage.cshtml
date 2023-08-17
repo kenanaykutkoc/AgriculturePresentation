@@ -13,12 +13,11 @@
 		<div class="form-agileits-w3layouts">
 			<p>Mesajınız</p>
 			<textarea asp-for="Message" placeholder="mesaj.." required=""></textarea>
-			<input type="submit" value="MESAJI GÖNDER" onclick="showPopup()" />
+			<input type="submit" value="MESAJI GÖNDER" onclick="validateForm()" />
 		</div>
 
 		<div class="clearfix"></div>
-
-		
+		<div id="error-message" style="color: red;"></div>
 	}
 
 	@if (ViewBag.MessageSent != null && (bool)ViewBag.MessageSent)
@@ -27,13 +26,23 @@
 			showPopup();
 		</script>
 	}
-	
-	
 </div>
-
 
 <script>
 	function showPopup() {
 		alert('Mesajınız başarıyla gönderildi.');
+	}
+
+	function validateForm() {
+		var name = document.querySelector('input[name="Name"]').value;
+		var mail = document.querySelector('input[name="Mail"]').value;
+		var message = document.querySelector('textarea[name="Message"]').value;
+		var errorMessage = document.getElementById('error-message');
+		errorMessage.innerHTML = "";
+
+		if (name.trim() === "" || mail.trim() === "" || message.trim() === "") {
+			errorMessage.innerHTML = "Lütfen tüm alanları doldurunuz.";
+			return false;
+		}
 	}
 </script>

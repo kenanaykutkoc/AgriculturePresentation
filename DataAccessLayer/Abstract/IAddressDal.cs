@@ -1,13 +1,8 @@
 ﻿using EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IAddressDal:IGenericDal<Address>
-    {
-    }
+	public interface IAddressDal : IGenericDal<Address>
+	{
+	}
 }

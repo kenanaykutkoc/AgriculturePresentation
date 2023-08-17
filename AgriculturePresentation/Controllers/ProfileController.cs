@@ -4,66 +4,66 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AgriculturePresentation.Controllers
 {
-    public class ProfileController : Controller
-    {
-        private readonly UserManager<IdentityUser> _userManager;
+	public class ProfileController : Controller
+	{
+		private readonly UserManager<IdentityUser> _userManager;
 
-        public ProfileController(UserManager<IdentityUser> userManager)
-        {
-            _userManager = userManager;
-        }
+		public ProfileController(UserManager<IdentityUser> userManager)
+		{
+			_userManager = userManager;
+		}
 
-        [HttpGet]
-        public async Task<IActionResult> Index()
-        {
-            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+		[HttpGet]
+		public async Task<IActionResult> Index()
+		{
+			var values = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            UserEditViewModel userEditViewModel = new UserEditViewModel();
+			UserEditViewModel userEditViewModel = new UserEditViewModel();
 
-            userEditViewModel.Mail = values.Email;
-            userEditViewModel.Phone = values.PhoneNumber;
+			userEditViewModel.Mail = values.Email;
+			userEditViewModel.Phone = values.PhoneNumber;
 
-            return View(userEditViewModel);
-        }
+			return View(userEditViewModel);
+		}
 
-        [HttpPost]
-        public async Task<IActionResult> Index(UserEditViewModel p)
-        {
-            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+		[HttpPost]
+		public async Task<IActionResult> Index(UserEditViewModel p)
+		{
+			var values = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            if (!string.IsNullOrEmpty(p.Password) || !string.IsNullOrEmpty(p.ConfirmPassword) || !string.IsNullOrEmpty(p.Phone))  
-            {           
-                       
-            if(p.Password == p.ConfirmPassword)
-            {
-                values.Email = p.Mail;
-                values.PhoneNumber = p.Phone;
-                values.PasswordHash = _userManager.PasswordHasher.HashPassword(values, p.Password);
-                var result = await _userManager.UpdateAsync(values);
+			if (!string.IsNullOrEmpty(p.Password) || !string.IsNullOrEmpty(p.ConfirmPassword) || !string.IsNullOrEmpty(p.Phone))
+			{
 
-                if(result.Succeeded)
-                {
-                    return RedirectToAction("Index", "Login");   
-                }
-                else
-                {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError("", "Kullanıcı bilgilerinizi ve şifrenizi doğru girdiğinizden emin olun");
-                    }
-                }
-                
-            }
-            else
-            {
-                ModelState.AddModelError("", "şifreler eşleşmiyor");
-            }
+				if (p.Password == p.ConfirmPassword)
+				{
+					values.Email = p.Mail;
+					values.PhoneNumber = p.Phone;
+					values.PasswordHash = _userManager.PasswordHasher.HashPassword(values, p.Password);
+					var result = await _userManager.UpdateAsync(values);
 
-            }
-            return View(p);
+					if (result.Succeeded)
+					{
+						return RedirectToAction("Index", "Login");
+					}
+					else
+					{
+						foreach (var error in result.Errors)
+						{
+							ModelState.AddModelError("", "Kullanıcı bilgilerinizi ve şifrenizi doğru girdiğinizden emin olun");
+						}
+					}
 
-           
+				}
+				else
+				{
+					ModelState.AddModelError("", "şifreler eşleşmiyor");
+				}
 
-        }
-    }
+			}
+			return View(p);
+
+
+
+		}
+	}
 }

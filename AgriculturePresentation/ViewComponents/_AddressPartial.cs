@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AgriculturePresentation.ViewComponents
 {
-	public class _AddressPartial:ViewComponent
+	public class _AddressPartial : ViewComponent
 	{
 		private readonly IAddressService _addressService;
 

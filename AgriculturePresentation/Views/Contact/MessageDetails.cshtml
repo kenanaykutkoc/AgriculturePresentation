@@ -1,4 +1,5 @@
 ﻿@model EntityLayer.Concrete.Contact
+
 @{
     ViewData["Title"] = "MessageDetails";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -11,18 +12,13 @@
             <form class="forms-sample" method="post">
                 <div class="form-group">
                     @Html.HiddenFor(x=> x.ContactId)
-                    <label>Adı Soyadı</label>                   
+                    <label>Adı Soyadı</label>
                     <input type="text" class="form-control" asp-for="Name">
-                    <br />
-                </div>
-                <div class="form-group">                   
-                    <label>Mail Adresi</label>
-                    <input type="text" class="form-control" asp-for="Mail">
                     <br />
                 </div>
                 <div class="form-group">
                     <label>Mail Adresi</label>
-                    <input type="email" class="form-control" asp-for="Mail">
+                    <input type="text" class="form-control" asp-for="Mail">
                     <br />
                 </div>
                 <div class="form-group">
@@ -34,11 +30,26 @@
                     <label>Mesaj Detayı</label>
                     <textarea class="form-control" cols="5" rows="20" asp-for="Message"></textarea>
                     <br />
-                </div>           
-                      
+                </div>
+
             </form>
+
+            <button type="button" class="btn btn-danger" id="btnDeleteMessage">Mesajı Sil</button>
+
+            <script>
+                document.getElementById("btnDeleteMessage").addEventListener("click", function () {
+                    var confirmDelete = confirm("Bu mesajı silmek istediğinizden emin misiniz?");
+                    if (confirmDelete) {
+                        var contactId = "@Model.ContactId"; // C# Model değerini JavaScript'e aktarıyoruz
+                        var deleteUrl = "/Contact/DeleteMessage?contactId=" + contactId; // URL'yi oluşturuyoruz
+                        window.location.href = deleteUrl; // Sayfayı belirtilen URL'ye yönlendiriyoruz
+                    }
+                });
+            </script>
+
         </div>
     </div>
 </div>
+
 
 

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AgriculturePresentation.ViewComponents
 {
-	public class _AboutPartial:ViewComponent
+	public class _AboutPartial : ViewComponent
 	{
 		private readonly IAboutService _aboutService;
 

@@ -2,7 +2,7 @@
 
 namespace AgriculturePresentation.ViewComponents
 {
-	public class _HeadPartial:ViewComponent
+	public class _HeadPartial : ViewComponent
 	{
 		public IViewComponentResult Invoke()
 		{
